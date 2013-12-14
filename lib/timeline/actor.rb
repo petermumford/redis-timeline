@@ -9,9 +9,9 @@ module Timeline
         end
       end
 
-      def followers
-        []
-      end
+      # def followers
+      #   []
+      # end
 
       private
         def timeline_options(options)

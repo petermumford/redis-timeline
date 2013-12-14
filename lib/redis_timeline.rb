@@ -4,6 +4,7 @@ require 'hashie'
 require 'timeline/config'
 require 'timeline/helpers'
 require 'timeline/track'
+require 'timeline/track_now'
 require 'timeline/actor'
 require 'timeline/activity'
 

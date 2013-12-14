@@ -91,7 +91,7 @@ module Timeline::Track
       if !target.nil?
         {
           id: target.id,
-          class: target.class.to_s,
+          klass: target.class.to_s,
           display_name: target.to_s
         }.merge(extra_fields_for(target))
       else
@@ -101,6 +101,8 @@ module Timeline::Track
 
     def redis_add(list, activity_item)
       Timeline.redis.lpush list, Timeline.encode(activity_item)
+      # Trim list so it doesn't get stupidly big. This will keep 300 elements
+      Timeline.redis.ltrim list, 0, 299
     end
 
     def set_object(object)
